@@ -1,0 +1,14 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [100],
+  "editor.wordWrapColumn": 100,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always",
+    "source.addMissingImports": "always",
+    "source.sorteMembers": "always",
+    "source.organizeImports": "always"
+  },
+  "tailwindCSS.classAttributes": ["class", "className", ".*className"]
+}
