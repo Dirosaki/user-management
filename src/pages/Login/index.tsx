@@ -33,7 +33,7 @@ export function Login() {
     <div className="flex flex-1 items-center justify-center">
       <Card className="mx-auto max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardTitle className="text-2xl">Entrar</CardTitle>
           <CardDescription>
             Digite suas credenciais abaixo para fazer login em sua conta
           </CardDescription>
@@ -42,7 +42,7 @@ export function Login() {
           <form onSubmit={handleSubmit}>
             <div className="grid gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">E-mail</Label>
                 <Input
                   autoComplete="email"
                   id="email"
@@ -55,7 +55,7 @@ export function Login() {
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">Senha</Label>
                   <Link
                     className="ml-auto inline-block text-sm underline transition-colors hover:text-primary"
                     to="/forget-password"
@@ -74,7 +74,11 @@ export function Login() {
               </div>
               <Button className="w-full" disabled={formState.isSubmitting} type="submit">
                 {formState.isSubmitting ? (
-                  <LoaderCircle className="animate-spin duration-700" size={20} />
+                  <LoaderCircle
+                    className="animate-spin duration-700"
+                    data-testid="loader"
+                    size={20}
+                  />
                 ) : (
                   'Entrar'
                 )}

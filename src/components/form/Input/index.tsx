@@ -1,9 +1,8 @@
 import { Eye, EyeOff } from 'lucide-react'
 import * as React from 'react'
 
+import { Button } from '@/components/Button'
 import { cn } from '@/utils/cn'
-
-import { Button } from '../Button'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
