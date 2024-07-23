@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
+    "tsBuildInfoFile": null,
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -23,7 +24,7 @@
     "noImplicitAny": true,
     "baseUrl": ".",
     "paths": {
-      "@/": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"],
