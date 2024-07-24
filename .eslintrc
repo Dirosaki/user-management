@@ -111,5 +111,11 @@
       }
     ]
   },
-  "ignorePatterns": ["vite.config.ts", "tailwind.config.ts", "postcss.config.js"]
+  "ignorePatterns": [
+    "vite.config.ts",
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "vitest.config.*",
+    "setupTests.ts"
+  ]
 }

@@ -31,7 +31,7 @@ export function Login() {
 
   return (
     <div className="flex flex-1 items-center justify-center">
-      <Card className="mx-auto max-w-sm">
+      <Card className="mx-auto w-full max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Entrar</CardTitle>
           <CardDescription>

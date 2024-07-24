@@ -1,5 +1,3 @@
-import '@testing-library/jest-dom'
-
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, test } from 'vitest'
@@ -63,6 +61,6 @@ describe('Register Component', () => {
     const loginLink = screen.getByText('Faça login')
     fireEvent.click(loginLink)
 
-    expect(window.location.pathname).toBe('/')
+    expect(window.location.pathname).toBe('/login')
   })
 })

@@ -7,7 +7,7 @@ const { Register } = lazyLoad(() => import('@/pages/Register'))
 
 export function Routes() {
   return useRoutes([
-    { path: '/', element: <Login /> },
+    { path: '/login', element: <Login /> },
     { path: '/register', element: <Register /> },
   ])
 }

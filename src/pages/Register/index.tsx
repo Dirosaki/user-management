@@ -32,7 +32,7 @@ export function Register() {
 
   return (
     <div className="flex flex-1 items-center justify-center">
-      <Card className="mx-auto max-w-sm">
+      <Card className="mx-auto w-full max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Cadastre-se</CardTitle>
           <CardDescription>Digite suas informações para fazer seu cadastro.</CardDescription>
@@ -88,7 +88,7 @@ export function Register() {
             </div>
             <div className="mt-4 text-center text-sm">
               Já possuí uma conta?&nbsp;
-              <Link className="underline transition-colors hover:text-primary" to="/">
+              <Link className="underline transition-colors hover:text-primary" to="/login">
                 Faça login
               </Link>
             </div>

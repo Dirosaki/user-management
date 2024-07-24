@@ -1,5 +1,3 @@
-import '@testing-library/jest-dom'
-
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, test } from 'vitest'
