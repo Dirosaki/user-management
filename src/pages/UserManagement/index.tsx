@@ -35,13 +35,16 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/DropdownMenu'
+import { users } from '@/data/users'
 import { useTheme } from '@/hooks/useTheme'
+import { useStore } from '@/store'
 
-import { columns, data, DataTable } from './components/DataTable'
+import { columns, DataTable } from './components/DataTable'
 
 export function UserManagement() {
   const [search, setSearch] = useState('')
   const { theme, setTheme } = useTheme()
+  const logout = useStore((state) => state.auth.logout)
 
   const [searchParams, setSearchParams] = useSearchParams()
   const initialPage = searchParams.get('page') ?? 1
@@ -51,7 +54,7 @@ export function UserManagement() {
   })
 
   const table = useReactTable({
-    data,
+    data: users,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -147,7 +150,7 @@ export function UserManagement() {
               </DropdownMenuPortal>
             </DropdownMenuSub>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={logout}>
               <LogOut className="mr-2 size-4" />
               <span>Sair da conta</span>
             </DropdownMenuItem>

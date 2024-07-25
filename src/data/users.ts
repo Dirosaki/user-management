@@ -1,6 +1,6 @@
-import { User } from './columns'
+import { User } from '@/store/slices/AuthSlice'
 
-export const data = [
+export const users = [
   {
     id: '1',
     name: 'Aline Costa',
