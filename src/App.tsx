@@ -2,6 +2,7 @@ import { LoaderCircle } from 'lucide-react'
 import { Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
+import { Toaster } from '@/components/Toaster'
 import { ThemeProvider } from '@/contexts/ThemeProvider'
 
 import { Routes } from './Router'
@@ -21,6 +22,7 @@ export function App() {
         >
           <Routes />
         </Suspense>
+        <Toaster />
       </BrowserRouter>
     </ThemeProvider>
   )
