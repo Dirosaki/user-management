@@ -3,13 +3,14 @@ import { Label } from '@radix-ui/react-label'
 import { LoaderCircle } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/Button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/Card'
 import { ErrorMessage } from '@/components/form/ErrorMessage'
 import { Input } from '@/components/form/Input'
-import { sleep } from '@/utils/sleep'
+import { useStore } from '@/store'
 
 const schema = z.object({
   name: z.string().min(1, 'O nome é obrigatório.'),
@@ -23,11 +24,21 @@ export function Register() {
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
   })
+  const register = useStore((state) => state.auth.register)
 
   const { formState } = form
 
-  const handleSubmit = form.handleSubmit(async () => {
-    await sleep()
+  const handleSubmit = form.handleSubmit(async (formData) => {
+    try {
+      await register(formData)
+      toast.success('Cadastrado realizado com sucesso!')
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message)
+      } else {
+        toast.error('Algo inesperado aconteceu, tente novamente!')
+      }
+    }
   })
 
   return (

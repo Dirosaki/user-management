@@ -10,42 +10,31 @@ import { Button } from '@/components/Button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/Card'
 import { ErrorMessage } from '@/components/form/ErrorMessage'
 import { Input } from '@/components/form/Input'
-import { useStore } from '@/store'
 
 const schema = z.object({
   email: z.string().min(1, 'O e-mail é obrigatório.').email('E-mail inválido.'),
-  password: z.string().min(1, 'A senha deve ter ao menos 6 caracteres.'),
 })
 
 type FormData = z.infer<typeof schema>
 
-export function Login() {
+export function ForgotPassword() {
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
   })
-  const login = useStore((state) => state.auth.login)
 
   const { formState } = form
 
-  const handleSubmit = form.handleSubmit(async (formData) => {
-    try {
-      await login(formData)
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message)
-      } else {
-        toast.error('Algo inesperado aconteceu, tente novamente!')
-      }
-    }
+  const handleSubmit = form.handleSubmit(async () => {
+    toast.error('Estamos sem back-end no momento, tente criar uma nova conta.')
   })
 
   return (
     <div className="flex flex-1 items-center justify-center">
       <Card className="mx-auto w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Entrar</CardTitle>
+          <CardTitle className="text-2xl">Esqueci minha senha</CardTitle>
           <CardDescription>
-            Digite suas credenciais abaixo para fazer login em sua conta
+            Digite seu e-mail para enviarmos as instruções para criação de uma nova senha.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -63,25 +52,7 @@ export function Login() {
                 />
                 <ErrorMessage>{formState.errors.email?.message}</ErrorMessage>
               </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Senha</Label>
-                  <Link
-                    className="ml-auto inline-block text-sm underline transition-colors hover:text-primary"
-                    to="/forgot-password"
-                  >
-                    Esqueceu sua senha?
-                  </Link>
-                </div>
-                <Input
-                  autoComplete="current-password"
-                  id="password"
-                  placeholder="Digite sua senha"
-                  type="password"
-                  {...form.register('password')}
-                />
-                <ErrorMessage>{formState.errors.password?.message}</ErrorMessage>
-              </div>
+
               <Button className="w-full" disabled={formState.isSubmitting} type="submit">
                 {formState.isSubmitting ? (
                   <LoaderCircle
@@ -90,14 +61,13 @@ export function Login() {
                     size={20}
                   />
                 ) : (
-                  'Entrar'
+                  'Enviar'
                 )}
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
-              Não possuí uma conta?&nbsp;
-              <Link className="underline transition-colors hover:text-primary" to="/register">
-                Cadastre-se
+              <Link className="underline transition-colors hover:text-primary" to="/login">
+                Voltar para o login
               </Link>
             </div>
           </form>
