@@ -1,6 +1,24 @@
-import { User } from '@/store/slices/AuthSlice'
+import { User } from '@/store/slices/UserSlice'
 
 export const users = [
+  {
+    id: '127',
+    name: 'Admin',
+    email: 'admin@admin.com',
+    role: 'admin',
+    createdAt: '2024-07-24T18:23:00.794Z',
+    lastLogin: null,
+    password: '12345678',
+  },
+  {
+    id: '268',
+    name: 'User',
+    email: 'user@user.com',
+    role: 'user',
+    createdAt: '2024-07-24T19:23:00.794Z',
+    lastLogin: null,
+    password: '12345678',
+  },
   {
     id: '1',
     name: 'Aline Costa',
