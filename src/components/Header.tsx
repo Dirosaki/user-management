@@ -129,7 +129,7 @@ export function Header() {
                 </DropdownMenuPortal>
               </DropdownMenuSub>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={logout}>
+              <DropdownMenuItem onClick={() => logout()}>
                 <LogOut className="mr-2 size-4" />
                 <span>Sair da conta</span>
               </DropdownMenuItem>

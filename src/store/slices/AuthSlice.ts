@@ -34,13 +34,19 @@ export const createAuthSlice: StoreSlice<AuthSlice> = (set) => ({
             throw new Error('Credencias inválidas ou usuário não cadastrado!')
           }
 
-          state.auth.loggedInUser = findUser
+          const updatedUser: User = {
+            ...findUser,
+            lastLogin: new Date().toISOString(),
+          }
+
+          state.auth.loggedInUser = updatedUser
+          Object.assign(findUser, updatedUser)
           resolve()
         })
       } catch (error) {
         reject(error)
       }
-    }),
+    }, 1000),
   register: (payload) =>
     withDelay((resolve, reject) => {
       try {

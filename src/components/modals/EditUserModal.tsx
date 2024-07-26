@@ -39,6 +39,7 @@ export function EditUserModal({ children, user, name }: EditUserModalProps) {
       role: user.role === 'admin',
     },
   })
+  const myId = useStore((state) => state.auth.loggedInUser?.id)
   const updateUser = useStore((state) => state.users.update)
   const { hide, openedModal, toggle } = useStore((state) => state.modal)
 
@@ -71,7 +72,7 @@ export function EditUserModal({ children, user, name }: EditUserModalProps) {
       {children}
       <DialogContent className="z-50">
         <DialogHeader>
-          <DialogTitle>Editar usuário</DialogTitle>
+          <DialogTitle>{myId === user.id ? 'Editar meu perfil' : 'Editar usuário'}</DialogTitle>
         </DialogHeader>
         <form noValidate onSubmit={handleSubmit}>
           <div className="grid gap-4">

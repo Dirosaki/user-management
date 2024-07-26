@@ -5,6 +5,7 @@ import { useStore } from '@/store'
 import { User } from '@/store/slices/UserSlice'
 import { formatShortDate } from '@/utils/formatters'
 import { getRole } from '@/utils/getRole'
+import { getUserPermission } from '@/utils/getUserPermission'
 
 import { Button } from '../Button'
 
@@ -19,6 +20,8 @@ export function ViewProfileModal({ children, user }: ViewProfileModalProps) {
   const myId = useStore((state) => state.auth.loggedInUser?.id)
   const { openedModal, toggle, show } = useStore((state) => state.modal)
 
+  const { can } = getUserPermission('user-management')
+
   return (
     <Dialog open={openedModal === MODAL_NAME} onOpenChange={() => toggle(MODAL_NAME)}>
       {children}
@@ -26,7 +29,7 @@ export function ViewProfileModal({ children, user }: ViewProfileModalProps) {
         <DialogHeader>
           <DialogTitle>{myId === user.id ? 'Meu perfil' : 'Visualizar perfil'}</DialogTitle>
         </DialogHeader>
-        <div className="[&>p]:mb-4 [&>strong]:text-sm [&>strong]:font-medium [&>strong]:text-muted-foreground">
+        <div className="[&>p:last-of-type]:mb-0 [&>p]:mb-4 [&>strong]:text-sm [&>strong]:font-medium [&>strong]:text-muted-foreground">
           <strong>Nome:</strong>
           <p>{user.name}</p>
           <strong>E-mail:</strong>
@@ -39,9 +42,11 @@ export function ViewProfileModal({ children, user }: ViewProfileModalProps) {
           <p>{user.lastLogin ? formatShortDate(user.lastLogin) : '-'}</p>
         </div>
 
-        <Button type="button" onClick={() => show(myId ? 'edit-profile' : 'edit-user')}>
-          Editar perfil
-        </Button>
+        {can('update') && (
+          <Button type="button" onClick={() => show(myId ? 'edit-profile' : 'edit-user')}>
+            Editar
+          </Button>
+        )}
       </DialogContent>
     </Dialog>
   )

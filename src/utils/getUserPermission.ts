@@ -6,22 +6,14 @@ import { Actions, Pages } from '@/types/permissions'
 
 export function getUserPermission(page: Pages) {
   const role = useStore.getState().auth.loggedInUser?.role
-  const { logout } = useStore.getState().auth
 
   if (!role) {
-    toast.error('Usuário não autenticado!')
-    logout()
+    toast.error('Você não possui nenhuma permissões, contate um administrador!')
   }
 
   const permissions: Actions[] = role ? RBAC[role][page] : []
 
-  function can(action: Actions) {
-    if (!permissions.includes('*') && !permissions.includes('read')) {
-      return false
-    }
-
-    return permissions.includes('*') || permissions.includes(action)
-  }
+  const can = (action: Actions) => permissions.includes('*') || permissions.includes(action)
 
   const cannot = (action: Actions) => !can(action)
 

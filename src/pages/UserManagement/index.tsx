@@ -18,8 +18,8 @@ import { columns, DataTable } from './components/DataTable'
 
 export function UserManagement() {
   const [search, setSearch] = useState('')
-  const users = useStore((state) => state.users.data)
   const myId = useStore((state) => state.auth.loggedInUser?.id)
+  const users = useStore((state) => state.users.data)
   const showNewUserModal = useStore((state) => state.modal.show)
 
   const [searchParams, setSearchParams] = useSearchParams()
@@ -50,13 +50,13 @@ export function UserManagement() {
     setSearchParams({ page: String(pagination.pageIndex + 1) })
   }, [pagination.pageIndex, setSearchParams])
 
-  const { can, cannot } = getUserPermission('user-management')
-
   function handleSearchChange(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value)
 
     table.setGlobalFilter(event.target.value)
   }
+
+  const { can, cannot } = getUserPermission('user-management')
 
   if (cannot('read')) {
     return (
