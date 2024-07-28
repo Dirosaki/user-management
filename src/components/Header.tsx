@@ -28,6 +28,7 @@ import { EditUserModal } from '@/components/modals/EditUserModal'
 import { ViewProfileModal } from '@/components/modals/ViewProfileModal'
 import { useTheme } from '@/hooks/useTheme'
 import { useStore } from '@/store'
+import { cn } from '@/utils/cn'
 
 export function Header() {
   const { theme, setTheme } = useTheme()
@@ -64,17 +65,20 @@ export function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 aria-label="Abrir menu"
-                className="group relative w-10 min-w-10 overflow-hidden transition-all sm:data-[state=open]:w-20 sm:hover:w-20 sm:focus-visible:w-20"
                 type="button"
                 variant="outline"
+                className={cn(
+                  'group relative w-10 min-w-10 overflow-hidden transition-all',
+                  `sm:data-[state=open]:w-[72px] sm:hover:w-[72px] sm:focus-visible:w-[72px]`
+                )}
               >
                 <User
                   className="absolute transition-all sm:group-hover:-translate-y-full sm:group-hover:opacity-0 sm:group-focus-visible:-translate-y-full sm:group-focus-visible:opacity-0 sm:group-data-[state=open]:-translate-y-full sm:group-data-[state=open]:opacity-0"
                   size={18}
                 />
-                <div className="absolute pl-0 opacity-0 transition-all duration-200 sm:translate-y-full sm:group-hover:translate-y-0 sm:group-hover:pl-0 sm:group-hover:opacity-100 sm:group-focus-visible:translate-y-0 sm:group-focus-visible:pl-0 sm:group-focus-visible:opacity-100 sm:group-data-[state=open]:translate-y-0 sm:group-data-[state=open]:pl-0 sm:group-data-[state=open]:opacity-100">
+                <div className="opacity-0 transition-all duration-200 sm:translate-y-full sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:translate-y-0 sm:group-focus-visible:opacity-100 sm:group-data-[state=open]:translate-y-0 sm:group-data-[state=open]:opacity-100">
                   <span className="text-nowrap" aria-hidden>
-                    {user.name}
+                    Menu
                   </span>
                 </div>
               </Button>

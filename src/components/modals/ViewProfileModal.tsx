@@ -42,7 +42,7 @@ export function ViewProfileModal({ children, user }: ViewProfileModalProps) {
           <p>{user.lastLogin ? formatShortDate(user.lastLogin) : '-'}</p>
         </div>
 
-        {can('update') && (
+        {(can('update') || myId === user.id) && (
           <Button type="button" onClick={() => show(myId ? 'edit-profile' : 'edit-user')}>
             Editar
           </Button>

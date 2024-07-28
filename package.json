@@ -9,7 +9,7 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "pnpm lint --fix",
+    "lint:fix": "npm run lint --fix",
     "preview": "vite preview",
     "prepare": "husky"
   },
@@ -18,7 +18,7 @@
       "prettier . --write"
     ],
     "**/*/*.{ts,tsx}": [
-      "pnpm lint:fix"
+      "npm run lint:fix"
     ]
   },
   "dependencies": {
