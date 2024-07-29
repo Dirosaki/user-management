@@ -1,3 +1,4 @@
+import { produce } from 'immer'
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
@@ -25,6 +26,15 @@ export const useStore = create<Store>()(
 
           return storage
         },
+        merge: (persistedState, currentState) =>
+          produce(currentState, (draft) => {
+            Object.entries(draft).forEach(([key, initialSliceValue]) => {
+              const typeSafeKey = key as keyof typeof persistedState
+              const persistedSliceValue = (persistedState as Store)[typeSafeKey]
+
+              Object.assign(initialSliceValue, persistedSliceValue)
+            })
+          }),
       }
     ),
     { enabled: import.meta.env.DEV }
