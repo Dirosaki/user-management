@@ -105,6 +105,18 @@
         "assert": "either"
       }
     ],
+    "tailwindcss/no-custom-classname": [
+      "error",
+      {
+        "callees": ["classnames", "clsx", "ctl", "cva", "tv", "cn"]
+      }
+    ],
+    "tailwindcss/classnames-order": [
+      "error",
+      {
+        "callees": ["classnames", "clsx", "ctl", "cva", "tv", "cn"]
+      }
+    ],
     "no-param-reassign": [
       "error",
       {

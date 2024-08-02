@@ -45,7 +45,7 @@ export function DeleteUserModal({ children, user }: DeleteUserModalProps) {
   return (
     <Dialog open={openedModal === MODAL_NAME} onOpenChange={() => toggle(MODAL_NAME)}>
       {children}
-      <DialogContent className="z-50">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>Excluir usuário</DialogTitle>
           <DialogDescription>

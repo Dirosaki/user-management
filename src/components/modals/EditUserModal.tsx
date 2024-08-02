@@ -6,7 +6,13 @@ import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/Button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/Dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/Dialog'
 import { ErrorMessage } from '@/components/form/ErrorMessage'
 import { Input } from '@/components/form/Input'
 import { Label } from '@/components/form/Label'
@@ -40,6 +46,7 @@ export function EditUserModal({ children, user, name }: EditUserModalProps) {
     },
   })
   const myId = useStore((state) => state.auth.loggedInUser?.id)
+  const role = useStore((state) => state.auth.loggedInUser?.role)
   const updateUser = useStore((state) => state.users.update)
   const { hide, openedModal, toggle } = useStore((state) => state.modal)
 
@@ -67,12 +74,22 @@ export function EditUserModal({ children, user, name }: EditUserModalProps) {
     }
   })
 
+  const myDescription =
+    role === 'user'
+      ? 'Edite suas informações de perfil aqui. Você pode alterar seu nome, e-mail e senha. Não se esqueça de salvar as alterações.'
+      : 'Edite suas informações de perfil aqui. Você pode alterar seu nome, e-mail, função e senha. Não se esqueça de salvar as alterações.'
+
   return (
     <Dialog open={openedModal === name} onOpenChange={() => toggle(name)}>
       {children}
-      <DialogContent className="z-50">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>{myId === user.id ? 'Editar meu perfil' : 'Editar usuário'}</DialogTitle>
+          <DialogDescription>
+            {myId === user.id
+              ? myDescription
+              : 'Edite as informações do perfil do usuário aqui. Você pode alterar o nome, e-mail, função e senha dele. Não se esqueça de salvar as alterações.'}
+          </DialogDescription>
         </DialogHeader>
         <form noValidate onSubmit={handleSubmit}>
           <div className="grid gap-4">
@@ -119,7 +136,12 @@ export function EditUserModal({ children, user, name }: EditUserModalProps) {
                   control={form.control}
                   name="role"
                   render={({ field }) => (
-                    <Switch checked={field.value} id="role" onCheckedChange={field.onChange} />
+                    <Switch
+                      checked={field.value}
+                      disabled={role === 'user'}
+                      id="role"
+                      onCheckedChange={field.onChange}
+                    />
                   )}
                 />
               </div>

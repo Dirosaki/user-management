@@ -6,7 +6,13 @@ import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/Button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/Dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/Dialog'
 import { ErrorMessage } from '@/components/form/ErrorMessage'
 import { Input } from '@/components/form/Input'
 import { Label } from '@/components/form/Label'
@@ -61,9 +67,13 @@ export function CreateUserModal({ children }: CreateUserModalProps) {
   return (
     <Dialog open={openedModal === MODAL_NAME} onOpenChange={() => toggle(MODAL_NAME)}>
       {children}
-      <DialogContent className="z-50">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>Novo usuário</DialogTitle>
+          <DialogDescription>
+            Preencha as informações abaixo para criar um novo usuário. Você pode definir o nome,
+            e-mail, função e senha.
+          </DialogDescription>
         </DialogHeader>
         <form noValidate onSubmit={handleSubmit}>
           <div className="grid gap-4">

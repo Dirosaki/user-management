@@ -1,6 +1,12 @@
 import { ReactNode } from 'react'
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/Dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/Dialog'
 import { useStore } from '@/store'
 import { User } from '@/store/slices/UserSlice'
 import { formatShortDate } from '@/utils/formatters'
@@ -22,12 +28,18 @@ export function ViewProfileModal({ children, user }: ViewProfileModalProps) {
 
   const { can } = getUserPermission('user-management')
 
+  const description =
+    myId === user.id
+      ? 'Visualize as informações do seu perfil aqui.'
+      : 'Visualize as informações de perfil do usuário aqui.'
+
   return (
     <Dialog open={openedModal === MODAL_NAME} onOpenChange={() => toggle(MODAL_NAME)}>
       {children}
-      <DialogContent className="z-50">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>{myId === user.id ? 'Meu perfil' : 'Visualizar perfil'}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <div className="[&>p:last-of-type]:mb-0 [&>p]:mb-4 [&>strong]:text-sm [&>strong]:font-medium [&>strong]:text-muted-foreground">
           <strong>Nome:</strong>
