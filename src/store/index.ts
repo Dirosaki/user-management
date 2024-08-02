@@ -17,7 +17,7 @@ export const useStore = create<Store>()(
         modal: createModalSlice(...params),
       })),
       {
-        name: 'softplan',
+        name: 'user-management',
         partialize: (state) => {
           const storage = {
             auth: { loggedInUser: state.auth.loggedInUser },

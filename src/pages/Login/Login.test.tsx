@@ -38,7 +38,7 @@ describe('Login Component', () => {
   test('enables submit button when form is valid and shows spinner when submitting', async () => {
     render(<LoginWithRoutes />)
 
-    fireEvent.input(screen.getByLabelText('E-mail'), { target: { value: 'softplan@example.com' } })
+    fireEvent.input(screen.getByLabelText('E-mail'), { target: { value: 'example@example.com' } })
     fireEvent.input(screen.getByLabelText('Senha'), { target: { value: 'password123' } })
 
     const submitButton = screen.getByRole('button', { name: 'Entrar' })

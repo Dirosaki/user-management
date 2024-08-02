@@ -57,7 +57,7 @@ export function Login() {
                   autoComplete="email"
                   id="email"
                   inputMode="email"
-                  placeholder="softplan@example.com"
+                  placeholder="example@example.com"
                   type="email"
                   {...form.register('email')}
                 />

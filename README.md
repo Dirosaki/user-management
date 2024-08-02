@@ -1,4 +1,4 @@
-# Desafio técnico Softplan (UNIC)
+# User Management
 
 ### Screenshots
 
@@ -13,7 +13,7 @@
 ### Demonstração
 
 Visualize a aplicação:
-[dirosaki-softplan.vercel.app/](dirosaki-softplan.vercel.app/)
+[https://dirosaki-user-management.vercel.app/](https://dirosaki-user-management.vercel.app/)
 
 ---
 
@@ -31,13 +31,13 @@ Visualize a aplicação:
 Clone o projeto
 
 ```bash
-  git clone https://github.com/Dirosaki/softplan.git
+  git clone https://github.com/Dirosaki/user-management
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd softplan
+  cd user-management
 ```
 
 Instale as dependências
@@ -85,7 +85,7 @@ Inicie o servidor
 
 - `typescript`: Hoje em dia eu quase não vejo código "javascript", quando vejo é legado, possuo bastante experiência com `typescript` o que me deixa bem confortável e ajuda bastante na codificação.
 
-- `Shadcn`: Como o desafio não possuía uma UI para seguir, pensei em utilizar essa biblioteca para economizar um pouco de tempo, apesar que ainda faltou criatividade.
+- `Shadcn`: Pensei em utilizar essa biblioteca para economizar um pouco de tempo, apesar que ainda faltou criatividade.
 
 - `Zustand`: Além dessa biblioteca ser leve, rápida e escalável, tem uma sintaxe simples e confortável, como não possuía uma API, acabei utilizando ela para gerenciar meus estados e aproveitei dos middlewares para persistir-los.
 

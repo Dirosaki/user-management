@@ -40,7 +40,7 @@ describe('Register Component', () => {
     render(<RegisterWithRoutes />)
 
     fireEvent.input(screen.getByLabelText('Nome completo'), { target: { value: 'Diego Gomes' } })
-    fireEvent.input(screen.getByLabelText('E-mail'), { target: { value: 'softplan@example.com' } })
+    fireEvent.input(screen.getByLabelText('E-mail'), { target: { value: 'example@example.com' } })
     fireEvent.input(screen.getByLabelText('Senha'), { target: { value: 'password123' } })
 
     const submitButton = screen.getByRole('button', { name: 'Cadastrar' })
