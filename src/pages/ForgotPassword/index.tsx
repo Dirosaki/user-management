@@ -29,50 +29,48 @@ export function ForgotPassword() {
   })
 
   return (
-    <div className="flex flex-1 items-center justify-center">
-      <Card className="mx-auto w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-2xl">Esqueci minha senha</CardTitle>
-          <CardDescription>
-            Digite seu e-mail para enviarmos as instruções para criação de uma nova senha.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <div className="grid gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="email">E-mail</Label>
-                <Input
-                  autoComplete="email"
-                  id="email"
-                  inputMode="email"
-                  placeholder="example@example.com"
-                  type="email"
-                  {...form.register('email')}
-                />
-                <ErrorMessage>{formState.errors.email?.message}</ErrorMessage>
-              </div>
+    <Card className="mx-auto w-full max-w-sm">
+      <CardHeader>
+        <CardTitle className="text-2xl">Esqueci minha senha</CardTitle>
+        <CardDescription>
+          Digite seu e-mail para enviarmos as instruções para criação de uma nova senha.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit}>
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">E-mail</Label>
+              <Input
+                autoComplete="email"
+                id="email"
+                inputMode="email"
+                placeholder="example@example.com"
+                type="email"
+                {...form.register('email')}
+              />
+              <ErrorMessage>{formState.errors.email?.message}</ErrorMessage>
+            </div>
 
-              <Button className="w-full" disabled={formState.isSubmitting} type="submit">
-                {formState.isSubmitting ? (
-                  <LoaderCircle
-                    className="animate-spin duration-700"
-                    data-testid="loader"
-                    size={20}
-                  />
-                ) : (
-                  'Enviar'
-                )}
-              </Button>
-            </div>
-            <div className="mt-4 text-center text-sm">
-              <Link className="underline transition-colors hover:text-primary" to="/login">
-                Voltar para o login
-              </Link>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+            <Button className="w-full" disabled={formState.isSubmitting} type="submit">
+              {formState.isSubmitting ? (
+                <LoaderCircle
+                  className="animate-spin duration-700"
+                  data-testid="loader"
+                  size={20}
+                />
+              ) : (
+                'Enviar'
+              )}
+            </Button>
+          </div>
+          <div className="mt-4 text-center text-sm">
+            <Link className="underline transition-colors hover:text-primary" to="/login">
+              Voltar para o login
+            </Link>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   )
 }

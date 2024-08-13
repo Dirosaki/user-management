@@ -1,5 +1,8 @@
 import { useRoutes } from 'react-router-dom'
 
+import { AuthLayout } from '@/layouts/AuthLayout'
+import { PrivateLayout } from '@/layouts/PrivateLayout'
+
 import { lazyLoad } from '../utils/lazyLoad'
 
 import { AuthGuard } from './AuthGuard'
@@ -14,14 +17,24 @@ export function Routes() {
     {
       element: <AuthGuard />,
       children: [
-        { path: '/forgot-password', element: <ForgotPassword /> },
-        { path: '/login', element: <Login /> },
-        { path: '/register', element: <Register /> },
+        {
+          element: <AuthLayout />,
+          children: [
+            { path: '/forgot-password', element: <ForgotPassword /> },
+            { path: '/login', element: <Login /> },
+            { path: '/register', element: <Register /> },
+          ],
+        },
       ],
     },
     {
       element: <AuthGuard isPrivate />,
-      children: [{ path: '/', element: <UserManagement /> }],
+      children: [
+        {
+          element: <PrivateLayout />,
+          children: [{ path: '/', element: <UserManagement /> }],
+        },
+      ],
     },
   ])
 }
