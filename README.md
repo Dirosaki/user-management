@@ -4,9 +4,9 @@
 
 | Login                                           | Cadastro                                        | Esqueci minha senha                             | Usuários                                        |
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| ![Screenshot](https://i.imgur.com/HocGcvn.jpeg) | ![Screenshot](https://i.imgur.com/1IrINyS.jpeg) | ![Screenshot](https://i.imgur.com/gQWiZ1M.jpeg) | ![Screenshot](https://i.imgur.com/79pDfZc.jpeg) |
+| ![Screenshot](https://i.imgur.com/wYVX9DG.jpeg) | ![Screenshot](https://imgur.com/nG3pjKO.jpeg)   | ![Screenshot](https://imgur.com/r4P1P7m.jpeg)   | ![Screenshot](https://i.imgur.com/79pDfZc.jpeg) |
 | Usuários (Novo usuário)                         | Usuários (Ver usuário)                          | Usuários (Editar usuário)                       | Usuários (Excluir usuário)                      |
-| ![Screenshot](https://i.imgur.com/klf4X6A.jpeg) | ![Screenshot](https://i.imgur.com/BSgKHnO.jpeg) | ![Screenshot](https://i.imgur.com/z55p3T5.jpeg) | ![Screenshot](https://i.imgur.com/XObO6Ds.jpeg) |
+| ![Screenshot](https://imgur.com/RbWieDk.jpeg)   | ![Screenshot](https://i.imgur.com/BSgKHnO.jpeg) | ![Screenshot](https://i.imgur.com/z55p3T5.jpeg) | ![Screenshot](https://i.imgur.com/XObO6Ds.jpeg) |
 
 ---
 
